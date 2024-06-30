@@ -15,7 +15,7 @@ struct MusicMenuBarApp: App {
         MenuBarExtra {
             MusicMenuBarView()
                 .padding(.all, 25)
-                .frame(minWidth: 350, idealHeight: 260)
+//                .frame(minWidth: 350,  idealHeight: 300)
         } label: {
             Text(model.menuBarTitle)
                 .onAppear {

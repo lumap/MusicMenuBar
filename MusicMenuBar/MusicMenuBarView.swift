@@ -23,7 +23,8 @@ struct MusicMenuBarView: View {
                 .resizable()
                 .scaledToFit()
         }
-        .frame(width: 165, height: 165)
+        .frame(width: 230, height: 230)
+        .clipShape(.rect(cornerRadius: 8.0))
         
         Spacer()
             .frame(height: 20)
@@ -32,7 +33,7 @@ struct MusicMenuBarView: View {
             Button {
                 model.previousTrack()
             } label: {
-                Label("Previous", systemImage: "backward")
+                Label("Back", systemImage: "backward")
             }
             
             if model.isPlaying {
@@ -58,11 +59,6 @@ struct MusicMenuBarView: View {
             }
         }
         
-//        Slider(value: Binding(
-//            get: { self.model.songPosition },
-//            set: { self.model.songPosition = $0 }
-//        ), in: 0...model.songDuration)
-        
         Slider(value: Binding(
                 get: { self.model.songPosition },
                 set: { self.model.songPosition = $0 }
@@ -81,6 +77,7 @@ struct MusicMenuBarView: View {
         }
             
         Divider()
+            .padding(.vertical, 15)
         
         Button("Quit") {
             NSApplication.shared.terminate(nil)
